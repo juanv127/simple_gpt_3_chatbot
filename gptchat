@@ -1,0 +1,9 @@
+import openai
+openai.api_key = ""   # not supposed to make key public, so this is empty for others to put their key in, sorry!
+
+question = input("What is your question?\n")
+
+completion = openai.ChatCompletion.create(model = "gpt-3/5-turbo", messages = [{"role": "system", "content": "you are a helpful assistant. answer the given question."},{"role": "user", "content": qustion}])
+
+print("")
+print("" + completion.choices[0].message.content + "\n")
